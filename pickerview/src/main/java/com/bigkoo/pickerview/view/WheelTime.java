@@ -383,15 +383,28 @@ public class WheelTime {
         }
 
         wv_day.setGravity(gravity);
+
         //时
         wv_hours = (WheelView) view.findViewById(R.id.hour);
         wv_hours.setAdapter(new NumericWheelAdapter(startHour, 23));
 
         wv_hours.setCurrentItem(h - startHour);
         wv_hours.setGravity(gravity);
+
+
         //分
         wv_minutes = (WheelView) view.findViewById(R.id.min);
         wv_minutes.setAdapter(new NumericWheelAdapter(startMin, 59));
+        wv_hours.setOnItemSelectedListener(new OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int index) {
+                if (index == 0) {
+                    wv_minutes.setAdapter(new NumericWheelAdapter(startMin, 59));
+                }else {
+                    wv_minutes.setAdapter(new NumericWheelAdapter(0, 59));
+                }
+            }
+        });
 
         wv_minutes.setCurrentItem(m - startMin);
         wv_minutes.setGravity(gravity);
