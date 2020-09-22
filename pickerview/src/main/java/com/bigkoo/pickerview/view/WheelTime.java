@@ -53,6 +53,8 @@ public class WheelTime {
     private int EndMin = DEFAULT_END_MIN;
     private int currentYear;
 
+    private boolean needMinFromZero = false;
+
     private int textSize;
 
     //文字的颜色和分割线的颜色
@@ -399,8 +401,10 @@ public class WheelTime {
             @Override
             public void onItemSelected(int index) {
                 if (index == 0) {
+                    needMinFromZero = false;
                     wv_minutes.setAdapter(new NumericWheelAdapter(startMin, 59));
-                }else {
+                } else {
+                    needMinFromZero = true;
                     wv_minutes.setAdapter(new NumericWheelAdapter(0, 59));
                 }
             }
@@ -737,6 +741,13 @@ public class WheelTime {
             return getLunarTime();
         }
         StringBuilder sb = new StringBuilder();
+        int indexMin = 0;
+        if (needMinFromZero) {
+            indexMin = wv_minutes.getCurrentItem();
+        } else {
+            indexMin = wv_minutes.getCurrentItem() + startMin;
+        }
+
         if (currentYear == startYear) {
            /* int i = wv_month.getCurrentItem() + startMonth;
             System.out.println("i:" + i);*/
@@ -745,14 +756,14 @@ public class WheelTime {
                         .append((wv_month.getCurrentItem() + startMonth)).append("-")
                         .append((wv_day.getCurrentItem() + startDay)).append(" ")
                         .append(wv_hours.getCurrentItem() + startHour).append(":")
-                        .append(wv_minutes.getCurrentItem() + startMin).append(":")
+                        .append(indexMin).append(":")
                         .append(wv_seconds.getCurrentItem());
             } else {
                 sb.append((wv_year.getCurrentItem() + startYear)).append("-")
                         .append((wv_month.getCurrentItem() + startMonth)).append("-")
                         .append((wv_day.getCurrentItem() + 1)).append(" ")
                         .append(wv_hours.getCurrentItem() + startHour).append(":")
-                        .append(wv_minutes.getCurrentItem() + startMin).append(":")
+                        .append(indexMin).append(":")
                         .append(wv_seconds.getCurrentItem());
             }
 
@@ -761,7 +772,7 @@ public class WheelTime {
                     .append((wv_month.getCurrentItem() + 1)).append("-")
                     .append((wv_day.getCurrentItem() + 1)).append(" ")
                     .append(wv_hours.getCurrentItem() + startHour).append(":")
-                    .append(wv_minutes.getCurrentItem() + startMin).append(":")
+                    .append(indexMin).append(":")
                     .append(wv_seconds.getCurrentItem());
         }
 
