@@ -141,6 +141,16 @@ public class TimePickerBuilder {
         return this;
     }
 
+    public TimePickerBuilder setLayoutRes(int res) {
+        mPickerOptions.layoutRes = res;
+        return this;
+    }
+
+    public TimePickerBuilder setLayoutListener(CustomListener listener) {
+        mPickerOptions.customListener = listener;
+        return this;
+    }
+
 
     /**
      * 设置起始时间
