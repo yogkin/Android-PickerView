@@ -39,7 +39,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
         initViews();
         initAnim();
 
-        if (mPickerOptions.customListener == null) {
+        if (mPickerOptions.layoutRes == 0) {
             LayoutInflater.from(context).inflate(R.layout.pickerview_time, contentContainer);
 
             //顶部标题
