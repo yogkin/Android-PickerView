@@ -108,6 +108,16 @@ public class OptionsPickerBuilder {
         return this;
     }
 
+    public OptionsPickerBuilder setLayoutRes(int res) {
+        mPickerOptions.layoutRes = res;
+        return this;
+    }
+
+    public OptionsPickerBuilder setLayoutListener(CustomListener listener) {
+        mPickerOptions.customListener = listener;
+        return this;
+    }
+
     public OptionsPickerBuilder setBgColor(int bgColorWheel) {
         mPickerOptions.bgColorWheel = bgColorWheel;
         return this;
