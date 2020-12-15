@@ -73,7 +73,7 @@ public class TimePickerView extends BasePickerView implements View.OnClickListen
             tvTitle.setTextSize(mPickerOptions.textSizeTitle);
 
         } else {
-            mPickerOptions.customListener.customLayout(LayoutInflater.from(context).inflate(mPickerOptions.layoutRes, contentContainer));
+            mPickerOptions.customListener.customLayout(this, LayoutInflater.from(context).inflate(mPickerOptions.layoutRes, contentContainer));
         }
         // 时间转轮 自定义控件
         LinearLayout timePickerView = (LinearLayout) findViewById(R.id.timepicker);

@@ -69,7 +69,7 @@ public class OptionsPickerView<T> extends BasePickerView implements View.OnClick
             btnCancel.setTextSize(mPickerOptions.textSizeSubmitCancel);
             tvTitle.setTextSize(mPickerOptions.textSizeTitle);
         } else {
-            mPickerOptions.customListener.customLayout(LayoutInflater.from(context).inflate(mPickerOptions.layoutRes, contentContainer));
+            mPickerOptions.customListener.customLayout(this,LayoutInflater.from(context).inflate(mPickerOptions.layoutRes, contentContainer));
         }
 
         // ----滚轮布局

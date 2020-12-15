@@ -2,6 +2,8 @@ package com.bigkoo.pickerview.listener;
 
 import android.view.View;
 
+import com.bigkoo.pickerview.view.BasePickerView;
+
 /**
  * Created by KyuYi on 2017/3/2.
  * E-Mail:kyu_yi@sina.com
@@ -9,5 +11,5 @@ import android.view.View;
  */
 
 public interface CustomListener {
-    void customLayout(View v);
+    void customLayout(BasePickerView pickerView, View v);
 }
