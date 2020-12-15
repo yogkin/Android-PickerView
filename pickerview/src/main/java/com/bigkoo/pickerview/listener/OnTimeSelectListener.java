@@ -2,6 +2,8 @@ package com.bigkoo.pickerview.listener;
 
 import android.view.View;
 
+import com.bigkoo.pickerview.view.TimePickerView;
+
 import java.util.Date;
 
 /**
@@ -10,5 +12,5 @@ import java.util.Date;
 
 public interface OnTimeSelectListener {
 
-    void onTimeSelect(Date date, View v);
+    void onTimeSelect(TimePickerView pickerView, Date date, View v);
 }
